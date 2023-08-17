@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_history_elements_experiences",
+  "info": {
+    "displayName": "project",
+    "icon": "building",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "project": {
+      "type": "string"
+    },
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "customer": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "element": {
+      "displayName": "element",
+      "type": "component",
+      "repeatable": true,
+      "component": "general-element.element"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

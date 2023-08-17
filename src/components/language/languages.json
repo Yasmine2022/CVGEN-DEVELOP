@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_language_languages",
+  "info": {
+    "displayName": "languages",
+    "icon": "bullhorn",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "speakingLevel": {
+      "type": "integer",
+      "max": 5
+    },
+    "writingLevel": {
+      "type": "integer",
+      "max": 5
+    },
+    "language": {
+      "type": "string"
+    }
+  }
+}

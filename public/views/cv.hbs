@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins' !important;
+        color: #14243E;
+      }
+      {{css}}
+    </style>
+  </head>
+  <body>
+    {{#if isZeta}}
+      <div style="background: url('{{host}}/zeta-shape.png') !important; background-position: top center !important; background-size: 100% !important; position: fixed; top: 0; width: 100%; height:100%; z-index: -1"></div>
+    {{else}}
+      {{#if isWiconex}}
+        <div style="background: url('{{host}}/wii-shape.png') !important; background-position: top center !important; background-size: 100% !important; position: fixed; top: 0; width: 100%; height:100%; z-index: -1"></div>
+      {{/if}}
+    {{/if}}
+    
+    <table id="content">
+      {{#if isDefault}}
+      {{else}}
+      <thead>
+        <tr>
+          <td class="d-flex justify-between">
+            <div id="header" class="w-100 d-flex justify-between p-20px">
+              <div class="header-img-container">
+                {{#if isZeta}}
+                <img class="header-img-zetabox" src="{{host}}/zeta-logo.png" alt="">
+                {{else}}
+                  {{#if isWiconex}}
+                  <img class="header-img-wiconnex" src="{{host}}/wii-logo.png" alt="">
+                  {{/if}}
+                {{/if}}
+              </div>
+               {{#if isZeta}}
+                <div class="header-details">contact@zeta-box.com</div>
+              {{else}}
+                {{#if isWiconex}}
+                <div class="header-details">contact@wiconnex.com</div>
+                {{/if}}
+              {{/if}}
+            </div>
+          </td>
+        </tr>
+      </thead>
+      {{/if}}
+      <tbody>
+        <tr>
+          <td>
+            <table id="main">
+              <tr>
+                <td>
+                {{#if isDefault}}
+                <div class="section-users">
+                {{else}}
+                <div class="section-user">
+                {{/if}}
+                  <div>
+                    <p class="section-user-lastname">{{name}}</p>
+                    <p class="section-user-job">{{job_title}}</p>
+                    <p class="section-user-job">{{experienceYears}}: {{experienceYearsStr}}</p>
+                    <br/>
+                    <div class="section-user-description">
+                      {{cv.description}}
+                    </div>
+                    <div class="section-header mt-20px">
+                      <p class="section-header-title">{{folder}}</p>
+                      <p class="section-header-desc">{{experience}}</p>
+                    </div>
+                    <table>
+                    {{#each experiences}}
+                      <tr>
+                        <td>
+                          <table class="section mt-5px">
+                            <tr><td class="section-content-date">{{this.company}} - {{this.country}}</td></tr>
+                            <tr><td class="section-content-title">{{this.title}}</td></tr>
+                            <tr><td class="section-content-date">{{this.date}}</td></tr>
+                          </table>
+                        </td>
+                      </tr>
+                      {{/each}}     
+                    </table>                 
+                    <div class="section-user-assets">{{{profile.assets}}}</div>
+                    <br/>
+                    <div class="section-header mt-20px">
+                      <p class="section-header-title">{{folder}}</p>
+                      <p class="section-header-desc">{{langs}}</p>
+                    </div>
+                    {{#each languages}}
+                      <li class="section-user-assets">
+                        <div>{{this.language}}: </div>
+                        <div>{{this.speaking}} : {{this.speakingLevel}} </div>
+                        <div>{{this.writing}} : {{this.writingLevel}} </div>
+                      </li>
+                    {{/each}}
+                    </ul>
+                    <br/>
+                  </div>
+                </td>
+              </tr>
+              {{#if hasSecondPage}}
+              <tr class="page-break-before">
+                <td>
+                  {{#if isDefault}}
+                  <div class="section-users d-flex justify-between">
+                  {{else}}
+                  <div class="section-user d-flex justify-between">
+                  {{/if}}
+                    <div>
+                    </div>
+                </td>
+              </tr>
+              {{#if hasTechnicalSkills}}
+              <tr>
+                <td>
+                  <div class="section-header mt-20px">
+                    <p class="section-header-title">{{this.folder}}</p>
+                    <p class="section-header-desc">{{this.skills}}</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <table class="section mt-20px">
+                     {{#each this.technicalSkills}}
+                      <tr><td class="section-content-title pt-20px">{{this.title}}</td></tr>
+                      <tr><td class="section-content-date">{{this.description}}</td></tr>
+                     {{/each}}
+                  </table>
+                </td>
+              </tr>
+              {{/if}}
+              {{#if hasCertificates}}
+          
+              <tr class="page-break-before">
+                <td>
+                  {{#if isDefault}}
+                  <div class="section-users d-flex justify-between">
+                  {{else}}
+                  <div class="section-user d-flex justify-between">
+                  {{/if}}
+                    <div>
+                      {{!-- <p class="section-user-lastname">{{this.project}}</p> --}}
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="section-header mt-40px">
+                    <p class="section-header-title">{{this.folder}}</p>
+                    <p class="section-header-desc">{{this.certifs}}</p>
+                  </div>
+                  <div class="section mt-20px">
+                     {{#each this.certificates}}
+                      <div class="section-content-title pt-20px">{{this.title}}</div>
+                      <div class="section-content-date">{{this.description}}</div>
+                     {{/each}}
+                  </div>
+                </td>
+              </tr>
+              {{/if}}
+              {{/if}}
+              {{#each projects}}
+              <tr class="page-break-before">
+                <td>
+                  {{#if isDefault}}
+                  <div class="section-users d-flex justify-between">
+                  {{else}}
+                  <div class="section-user d-flex justify-between">
+                  {{/if}}
+                    <div>
+                      {{!-- <p class="section-user-lastname">{{this.project}}</p> --}}
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="section-header mt-20px">
+                    <p class="section-header-title">{{this.folder}}</p>
+                    <p class="section-header-desc">{{this.project}}</p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="section mt-20px">
+                    <div class="d-flex justify-between">
+                      <div>
+                        <div class="section-content-date">{{this.customer}} - {{this.country}}</div>
+                        <div class="section-content-title">{{this.name}}</div>
+                        <div class="section-content-date">{{this.date}}</div>
+                      </div>
+                      {{#if this.hasLogo}}
+                      <div class="section-content-logo-container">
+                        <img src={{this.logo}} alt="">
+                      </div>
+                      {{/if}}
+                    </div>
+                  </div>
+                </td>
+                </tr>
+                <tr>
+                  <td>
+                    {{#each this.elements}}
+                    <div class="section-content-title pt-20px">{{this.title}}</div>
+                    <div class="section-content-date">{{{this.description}}}</div>
+                    {{/each}}
+                </td>
+              </tr>
+              {{/each}}
+              <tr class="page-break-before">
+                <td>
+                  {{#if isDefault}}
+                  <div class="section-users d-flex justify-between"><div>
+                  {{else}}
+                  <div class="section-user d-flex justify-between">
+                  {{/if}}
+                  </div></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="section-header mt-20px">
+                    <p class="section-header-title">{{this.folder}}</p>
+                    <p class="section-header-desc">{{this.competence}}</p>
+                  </div>
+                </td>
+              </tr>
+              {{#each educations}}
+              <tr>
+                <td>
+                  <table class="section mt-20px">
+                    <tr><td class="section-content-date">{{this.year}}</td></tr>
+                    <tr><td class="section-content-title">{{this.diploma}}</td></tr>
+                    <tr><td class="section-content-infos">{{this.school}}</td></tr>
+                  </table>
+                </td>
+              </tr>
+              {{/each}} 
+            </table>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr id="footer">
+          <td>
+            <p>Dossier de competence -  Nom et prenom</p>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

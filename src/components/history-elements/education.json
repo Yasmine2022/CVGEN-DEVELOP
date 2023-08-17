@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_history_elements_educations",
+  "info": {
+    "displayName": "Education",
+    "icon": "book-open"
+  },
+  "options": {},
+  "attributes": {
+    "diploma": {
+      "type": "string"
+    },
+    "year": {
+      "type": "string"
+    },
+    "school": {
+      "type": "string"
+    }
+  }
+}

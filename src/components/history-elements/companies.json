@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_history_elements_companies",
+  "info": {
+    "displayName": "company",
+    "icon": "building",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "company": {
+      "type": "string"
+    },
+    "start": {
+      "type": "date"
+    },
+    "end": {
+      "type": "date"
+    },
+    "title": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    }
+  }
+}
